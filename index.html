@@ -22,13 +22,13 @@
     </head>
     <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
 
-        <nav class="navbar navbar-expand-sm bg-light navbar-light" id="myScrollspy">
+        <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top" id="myScrollspy">
           <div class="container">
             <h2>Habibi Trims</h2>
             <br>
             <!-- Nav pills -->
             <ul class="nav nav-pills" id="myScrollspy">
-              <li><a class="nav-link" href="#home">Home</a></li>
+              <li><a class="nav-link" href="#parallax">Home</a></li>
               <li><a class="nav-link" href="#services">Services</a></li>
               <li><a class="nav-link" href="#barbers">Barbers</a></li>
               <li><a class="nav-link" href="#contact">Contact us</a></li>
@@ -36,12 +36,11 @@
           </div>
         </nav>
 
-          <div class="parallax"></div>
+          <div class="parallax" id="parallax"></div>
 
           <div class="tab-content">
             <div class="tab-pane container active" id="home">
-              <!-- <div class="parallax"></div> -->
-            
+          
               <div class="container p-3 my-3 border">
                 <h1 class="center" id="big">Welcome to Habibi Trims!</h1>
                 <br>
@@ -122,8 +121,8 @@
                 
                 <div class="container p-3 my-3 border">
                   <h1 class="center" id="contact">Contact us</h1>
-                  <img class="map" src="map.png">
-                  <br>
+                  <!-- <img class="map" src="map.png">
+                  <br> -->
                   <br>
                   <table class="table table-borderless">
                     <thead>
@@ -135,11 +134,11 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td><div class="container1 p-3 my-3 border">
+                        <td><div class="container1 p-3 my-3 border" id="appt" data-toggle="tooltip" data-placement="right" title="Please complete all fields!">
                         <form>
                           <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="name" class="form-control" placeholder="Enter name" id="name">
+                            <input type="name" class="form-control" placeholder="Enter name" id="name" data-toggle="tooltip" data-placement="right" title="Please do not use any special characters!">
                           </div>
                           <div class="form-group">
                             <label for="email">Email:</label>
@@ -152,28 +151,34 @@
                           
                           <br>
 
-                          <div class="dropdown">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="s">
-                              Choose service
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" onclick="selectRC()" id="rc">Regular cut</a>
-                              <a class="dropdown-item" onclick="selectFade()" id="fade">Fade</a>
-                              <a class="dropdown-item" onclick="selectBT()" id="bt">Beard trim</a>
-                              <a class="dropdown-item" onclick="selectSD()" id="sd">Special design</a>
+                          <div class="form-group">
+                            <label for="button">Optional*</label>
+                            <div class="dropdown">
+                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="s">
+                                Choose service
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" onclick="selectRC()" id="rc">Regular cut</a>
+                                <a class="dropdown-item" onclick="selectFade()" id="fade">Fade</a>
+                                <a class="dropdown-item" onclick="selectBT()" id="bt">Beard trim</a>
+                                <a class="dropdown-item" onclick="selectSD()" id="sd">Special design</a>
+                              </div>
                             </div>
                           </div>
 
                           <br>
 
-                          <div class="dropdown">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="b">
-                              Choose barber
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" onclick="selectF()" id="f">Frank</a>
-                              <a class="dropdown-item" onclick="selectG()" id="g">George</a>
-                              <a class="dropdown-item" onclick="selectJ()" id="j">Juan</a>
+                          <div class="form-group">
+                            <label for="button">Please select a barber to see availability</label>
+                            <div class="dropdown">
+                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="b">
+                                Choose barber
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" onclick="selectF()" id="f">Frank</a>
+                                <a class="dropdown-item" onclick="selectG()" id="g">George</a>
+                                <a class="dropdown-item" onclick="selectJ()" id="j">Juan</a>
+                              </div>
                             </div>
                           </div>
 
@@ -194,7 +199,7 @@
 
                           <div class="form-group">
                             <label for="credit">Credit card:</label>
-                            <input type="credit" class="form-control" placeholder="xxxx xxxx xxxx xxxx" id="credit">
+                            <input type="credit" class="form-control" placeholder="xxxx xxxx xxxx xxxx" id="credit" data-toggle="tooltip" data-placement="right" title="We ask for credit card number in case of no-show, 15$ will be charged!">
                           </div> 
 
                           <button type="submit" class="btn btn-primary" id="book">Submit</button> 

@@ -30,6 +30,15 @@ function selectSD(){
     document.getElementById("s").innerHTML = "Special design";
 }
 
+function validateName(nm){
+    var m = document.getElementById(nm).value;
+    var regM = /^([A-Za-z]+(\s)?[A-Za-z]*)+$/; 
+    if(regM.test(m)){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 function validateEmail(mail){
     var e = document.getElementById(mail).value;
@@ -90,10 +99,14 @@ function disableDatesJ(date) {
 
 $(document).ready(function(){
 
+    $("#book").hide();
+
     $("#chooseTxt").hide();
     $("#bookF").hide();
     $("#bookG").hide();
     $("#bookJ").hide();
+
+    $('[data-toggle="tooltip"]').tooltip();   
 
     $("#f").on("click", function(){
         $("#chooseTxt").show();
@@ -119,11 +132,29 @@ $(document).ready(function(){
 
     });
 
+
+    $("#appt").mouseenter(function(){
+        if ((validateEmail("email") && validateNumber("number") && validateCredit("credit") && validateName("name"))==true){
+            $("#book").show();
+
+        }
+    });
+
     $("#book").on("click", function(){
         alert("Your booking has been confirmed!");
-
     });
   
+    $("#name").keyup(function(){
+        if (!validateName("name")){
+            
+            $("#name").css("background-color", "pink");
+ 
+        }
+        else {
+            $("#name").css("background-color", "lightgreen");
+        }
+    });
+
     $("#email").keyup(function(){
         if (!validateEmail("email")){
             
