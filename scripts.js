@@ -193,7 +193,7 @@ $(document).ready(function(){
         {
             dateFormat: setDateFormat,
             
-            minDate: -2,  
+            minDate: 0,  
             maxDate: '+6M',
             
             beforeShowDay: $.datepicker.noWeekends,
@@ -206,7 +206,7 @@ $(document).ready(function(){
         {
             dateFormat: setDateFormat,
             
-            minDate: -2,  
+            minDate: 0,  
             maxDate: '+6M',
             
             beforeShowDay: $.datepicker.noWeekends,
@@ -219,7 +219,7 @@ $(document).ready(function(){
         {
             dateFormat: setDateFormat,
             
-            minDate: -2,  
+            minDate: 0,  
             maxDate: '+6M',
             
             beforeShowDay: $.datepicker.noWeekends,
