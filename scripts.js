@@ -1,3 +1,7 @@
+// Tutorials on Regular expressions
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions 
+// https://flaviocopes.com/javascript-regular-expressions/
+
 function selectF(){
     document.getElementById("b").innerHTML = "Frank";
 }
