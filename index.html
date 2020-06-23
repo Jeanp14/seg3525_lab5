@@ -18,8 +18,10 @@
         crossorigin="anonymous"></script> -->
 
         <link href="styles.css" rel="stylesheet" type="text/css">
+        <link href="jquery-ui.css" rel="stylesheet" type="text/css">
         <script src="scripts.js"></script>
-
+        <script src="jquery-ui.js"></script>
+       
     </head>
     <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
 
@@ -50,7 +52,7 @@
                 <br>
                 <p class="center" id="h3">Business hours:</p>
                 <p class="center">Week days: 9:00 a.m - 8:00 p.m</p>
-                <p class="center">Weekends: 11:00 a.m - 5:00 p.m</p>
+                <p class="center">Weekends: Closed</p>
               </div>
 
                 <div>
@@ -144,7 +146,7 @@
                           </div>
                           <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" class="form-control" placeholder="abc@example.com" id="email">
+                            <input type="email" class="form-control" placeholder="abc123@example.com" id="email">
                           </div>
                           <div class="form-group">
                             <label for="number">Phone number:</label>
@@ -181,18 +183,24 @@
                           <br>
 
                           <div class="form-group">
-                            <label for="dateTimeInput">Choose date and time:</label>
+                            <label for="dateInput" id="chooseTxt">Choose date:</label>
                             <div class="col-10">
-                                <input class="form-control" type="datetime-local" value="2020-06-15T13:45:00" id="dateTimeInput">
+                                <input class="form-control" type="text" id="bookF">
+                            </div>
+                            <div class="col-10">
+                              <input class="form-control" type="text" id="bookG">
+                            </div>
+                            <div class="col-10">
+                              <input class="form-control" type="text" id="bookJ">
                             </div>
                           </div>
 
                           <div class="form-group">
                             <label for="credit">Credit card:</label>
-                            <input type="credit" class="form-control" placeholder="16 digit number" id="credit">
+                            <input type="credit" class="form-control" placeholder="xxxx xxxx xxxx xxxx" id="credit">
                           </div> 
 
-                          <button type="submit" class="btn btn-primary">Submit</button> 
+                          <button type="submit" class="btn btn-primary" id="book">Submit</button> 
                         </form>             
                         </div></td>
                         

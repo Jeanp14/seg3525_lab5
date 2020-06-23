@@ -49,7 +49,7 @@ function validateNumber(num){
 
 function validateCredit(cred) {
     var c = document.getElementById(cred).value;
-    var regC = /^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}$/;
+    var regC = /^[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}$/;
     if (regC.test(c)) {
         return true;
     }
@@ -58,7 +58,67 @@ function validateCredit(cred) {
     }
 }
 
+var unavailableF = ["07/01/2020","12/25/2020"]
+var unavailableG = ["07/01/2020","07/02/2020","07/03/2020","07/04/2020","07/05/2020","07/18/2020","09/30/2020","12/25/2020"]
+var unavailableJ = ["08/03/2020","07/01/2020","07/10/2020","08/15/2020","08/16/2020","12/25/2020"]
+const setDateFormat = "mm/dd/yy";
+
+function disableDatesF(date) {
+    if (date.getDay() == 0)
+        return [false];
+    var string = jQuery.datepicker.formatDate(setDateFormat, date);
+    return [ unavailableF.indexOf(string) == -1 ]
+}  
+
+function disableDatesG(date) {
+    if (date.getDay() == 0)
+        return [false];
+    var string = jQuery.datepicker.formatDate(setDateFormat, date);
+    return [ unavailableG.indexOf(string) == -1 ]
+}  
+
+function disableDatesJ(date) {
+    if (date.getDay() == 0)
+        return [false];
+    var string = jQuery.datepicker.formatDate(setDateFormat, date);
+    return [ unavailableJ.indexOf(string) == -1 ]
+}  
+
 $(document).ready(function(){
+
+    $("#chooseTxt").hide();
+    $("#bookF").hide();
+    $("#bookG").hide();
+    $("#bookJ").hide();
+
+    $("#f").on("click", function(){
+        $("#chooseTxt").show();
+        $("#bookF").show();
+        $("#bookG").hide();
+        $("#bookJ").hide();
+
+    });
+
+    $("#g").on("click", function(){
+        $("#chooseTxt").show();
+        $("#bookG").show();
+        $("#bookF").hide();
+        $("#bookJ").hide();
+
+    });
+
+    $("#j").on("click", function(){
+        $("#chooseTxt").show();
+        $("#bookJ").show();
+        $("#bookG").hide();
+        $("#bookF").hide();
+
+    });
+
+    $("#book").on("click", function(){
+        alert("Your booking has been confirmed!");
+
+    });
   
     $("#email").keyup(function(){
         if (!validateEmail("email")){
@@ -94,15 +154,42 @@ $(document).ready(function(){
         }
     });
 
-    $( "#dateTimeInput" ).datepicker(
+    $("#bookF").datepicker(
         {
             dateFormat: setDateFormat,
-            // no calendar before June 1rst 2020
-            minDate: new Date('06/01/2020'),  
-            maxDate: '+4M',
-            // used to disable some dates
+            
+            minDate: -2,  
+            maxDate: '+6M',
+            
             beforeShowDay: $.datepicker.noWeekends,
-            beforeShowDay: disableDates
+            beforeShowDay: disableDatesF,
+       
+        }   
+    );
+
+    $("#bookG").datepicker(
+        {
+            dateFormat: setDateFormat,
+            
+            minDate: -2,  
+            maxDate: '+6M',
+            
+            beforeShowDay: $.datepicker.noWeekends,
+            beforeShowDay: disableDatesG,
+       
+        }   
+    );
+
+    $("#bookJ").datepicker(
+        {
+            dateFormat: setDateFormat,
+            
+            minDate: -2,  
+            maxDate: '+6M',
+            
+            beforeShowDay: $.datepicker.noWeekends,
+            beforeShowDay: disableDatesJ,
+       
         }   
     );
 
