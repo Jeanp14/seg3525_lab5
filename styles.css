@@ -85,7 +85,10 @@ a {
   background-size: cover;
 }
 
-
+.background{
+  background-color: black;
+  height: 1000px;
+}
 
 .center-image{
   display: block;
@@ -99,5 +102,5 @@ a {
 }
 
 body{
-  background-color: black;
+  background-color: white;
 }
